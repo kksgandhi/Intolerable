@@ -1,50 +1,15 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scenes/Person/Person.tscn" type="PackedScene" id=1]
-[ext_resource path="res://addons/beehave/nodes/beehave_root.gd" type="Script" id=2]
-[ext_resource path="res://AI/Actions/printer.tscn" type="PackedScene" id=3]
-[ext_resource path="res://addons/beehave/nodes/decorators/limiter.gd" type="Script" id=4]
-[ext_resource path="res://addons/beehave/nodes/composites/sequence.gd" type="Script" id=5]
-[ext_resource path="res://addons/beehave/nodes/decorators/succeeder.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Main/Entity_spawner.gd" type="Script" id=2]
 [ext_resource path="res://assets/images/fabric_1.png" type="Texture" id=7]
 
 [node name="World" type="Node2D"]
 
 [node name="Entities" type="Node2D" parent="."]
-
-[node name="Person" parent="Entities" instance=ExtResource( 1 )]
-position = Vector2( 102, 168 )
-
-[node name="Person2" parent="Entities" instance=ExtResource( 1 )]
-position = Vector2( 620, 343 )
-
-[node name="BasicPerson" type="Node" parent="Entities/Person2"]
 script = ExtResource( 2 )
 
-[node name="SequenceComposite" type="Node" parent="Entities/Person2/BasicPerson"]
-script = ExtResource( 5 )
-
-[node name="AlwaysSucceedDecorator" type="Node" parent="Entities/Person2/BasicPerson/SequenceComposite"]
-script = ExtResource( 6 )
-
-[node name="5" type="Node" parent="Entities/Person2/BasicPerson/SequenceComposite/AlwaysSucceedDecorator"]
-script = ExtResource( 4 )
-max_count = 5.0
-
-[node name="YOLOprinter" parent="Entities/Person2/BasicPerson/SequenceComposite/AlwaysSucceedDecorator/5" instance=ExtResource( 3 )]
-textToPrint = "YOLO"
-
-[node name="AlwaysSucceedDecorator2" type="Node" parent="Entities/Person2/BasicPerson/SequenceComposite"]
-script = ExtResource( 6 )
-
-[node name="7" type="Node" parent="Entities/Person2/BasicPerson/SequenceComposite/AlwaysSucceedDecorator2"]
-script = ExtResource( 4 )
-max_count = 7.0
-
-[node name="NOLOPrinter" parent="Entities/Person2/BasicPerson/SequenceComposite/AlwaysSucceedDecorator2/7" instance=ExtResource( 3 )]
-textToPrint = "NOLO"
-
 [node name="Background" type="ParallaxBackground" parent="."]
+visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
 
