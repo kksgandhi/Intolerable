@@ -44,13 +44,11 @@ max_count = 7.0
 [node name="NOLOPrinter" parent="Entities/Person2/BasicPerson/SequenceComposite/AlwaysSucceedDecorator2/7" instance=ExtResource( 3 )]
 textToPrint = "NOLO"
 
-[node name="Background" type="Node2D" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
-
-[node name="TextureRect" type="TextureRect" parent="Background/ParallaxBackground/ParallaxLayer"]
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
 margin_left = -3208.0
 margin_top = -1820.0
 margin_right = 3549.0
