@@ -9,11 +9,11 @@
 script = ExtResource( 2 )
 
 [node name="Background" type="ParallaxBackground" parent="."]
-visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
 
 [node name="TextureRect" type="TextureRect" parent="Background/ParallaxLayer"]
+modulate = Color( 0.933333, 0.909804, 0.835294, 1 )
 margin_left = -3208.0
 margin_top = -1820.0
 margin_right = 3549.0
