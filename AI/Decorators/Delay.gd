@@ -3,7 +3,7 @@ extends ConditionLeaf
 export var use_constant_delay := true
 export var constant_delay_amount := 1.0
 
-export var delay_variable    := ""
+export var delay_variable    := "timer_delay"
 export var trigger_variable  := ""
 
 export var autostart := true
