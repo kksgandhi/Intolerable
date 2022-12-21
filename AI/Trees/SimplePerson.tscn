@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://addons/beehave/nodes/beehave_root.gd" type="Script" id=1]
 [ext_resource path="res://addons/beehave/nodes/composites/sequence_star.gd" type="Script" id=2]
-[ext_resource path="res://AI/Actions/SetRandomCommunityRandomTimes.gd" type="Script" id=3]
-[ext_resource path="res://AI/Decorators/ConstantDelay.tscn" type="PackedScene" id=4]
-[ext_resource path="res://AI/Actions/printer.tscn" type="PackedScene" id=5]
-[ext_resource path="res://AI/Decorators/RunningSucceeder.tscn" type="PackedScene" id=6]
+[ext_resource path="res://addons/beehave/nodes/decorators/inverter.gd" type="Script" id=7]
+[ext_resource path="res://AI/Conditions/IsActorEmitting.tscn" type="PackedScene" id=8]
+[ext_resource path="res://AI/Decorators/DelayUntil.tscn" type="PackedScene" id=9]
+[ext_resource path="res://AI/Actions/SelectRandomCommunity.tscn" type="PackedScene" id=10]
+[ext_resource path="res://AI/Actions/TimerSetter.tscn" type="PackedScene" id=11]
+[ext_resource path="res://AI/Conditions/Timer.tscn" type="PackedScene" id=12]
 
 [node name="SimplePerson" type="Node"]
 script = ExtResource( 1 )
@@ -13,11 +15,18 @@ script = ExtResource( 1 )
 [node name="SequenceStarComposite" type="Node" parent="."]
 script = ExtResource( 2 )
 
-[node name="SetRandomCommunityRandomTimes" type="Node" parent="SequenceStarComposite"]
-script = ExtResource( 3 )
+[node name="timer_setter" parent="SequenceStarComposite" instance=ExtResource( 11 )]
 
-[node name="RunningSucceeder" parent="SequenceStarComposite" instance=ExtResource( 6 )]
+[node name="DelayForTimer" parent="SequenceStarComposite" instance=ExtResource( 9 )]
 
-[node name="ConstantDelay" parent="SequenceStarComposite/RunningSucceeder" instance=ExtResource( 4 )]
+[node name="Timer" parent="SequenceStarComposite/DelayForTimer" instance=ExtResource( 12 )]
+use_constant_delay = false
 
-[node name="printer" parent="SequenceStarComposite/RunningSucceeder/ConstantDelay" instance=ExtResource( 5 )]
+[node name="DelayForEmitting" parent="SequenceStarComposite" instance=ExtResource( 9 )]
+
+[node name="IsActorNotEmitting" type="Node" parent="SequenceStarComposite/DelayForEmitting"]
+script = ExtResource( 7 )
+
+[node name="IsActorEmitting" parent="SequenceStarComposite/DelayForEmitting/IsActorNotEmitting" instance=ExtResource( 8 )]
+
+[node name="select_random_community" parent="SequenceStarComposite" instance=ExtResource( 10 )]

@@ -1,7 +1,7 @@
 extends Node2D
 
 var person = preload("res://Scenes/Person/Person.tscn")
-var simple_person_ai = preload("res://AI/Trees/TestTree.tscn")
+var simple_person_ai = preload("res://AI/Trees/SimplePerson.tscn")
 
 func _input(event):
   if event is InputEventMouseButton and event.is_pressed():
