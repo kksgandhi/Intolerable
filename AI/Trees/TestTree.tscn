@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://addons/beehave/nodes/beehave_root.gd" type="Script" id=1]
 [ext_resource path="res://AI/Decorators/Delay.tscn" type="PackedScene" id=2]
 [ext_resource path="res://addons/beehave/nodes/composites/sequence.gd" type="Script" id=3]
 [ext_resource path="res://AI/Actions/printer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://AI/Decorators/RunningSucceeder.tscn" type="PackedScene" id=5]
+[ext_resource path="res://addons/beehave/nodes/composites/sequence_star.gd" type="Script" id=6]
 
 [node name="TestTree" type="Node"]
 script = ExtResource( 1 )
@@ -11,8 +13,15 @@ script = ExtResource( 1 )
 [node name="SequenceComposite" type="Node" parent="."]
 script = ExtResource( 3 )
 
-[node name="Delay" parent="SequenceComposite" instance=ExtResource( 2 )]
-constant_delay_amount = 5.0
-autoreset = false
+[node name="RunningSucceeder" parent="SequenceComposite" instance=ExtResource( 5 )]
 
-[node name="printer" parent="SequenceComposite/Delay" instance=ExtResource( 4 )]
+[node name="SequenceStarComposite" type="Node" parent="SequenceComposite/RunningSucceeder"]
+script = ExtResource( 6 )
+
+[node name="Delay" parent="SequenceComposite/RunningSucceeder/SequenceStarComposite" instance=ExtResource( 2 )]
+constant_delay_amount = 5.0
+
+[node name="printer" parent="SequenceComposite/RunningSucceeder/SequenceStarComposite" instance=ExtResource( 4 )]
+
+[node name="printer" parent="SequenceComposite" instance=ExtResource( 4 )]
+textToPrint = "N"

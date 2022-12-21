@@ -1,4 +1,4 @@
-extends LimiterDecorator
+extends ConditionLeaf
 
 export var use_constant_delay := true
 export var constant_delay_amount := 1.0
@@ -27,7 +27,7 @@ func tick(actor, blackboard):
     elif trigger_variable != "" and blackboard.get(trigger_variable):
       trigger()
     else:
-      return get_child(0).tick(actor, blackboard)
+      return SUCCESS
 
   var delay = -1
   if use_constant_delay:
@@ -42,6 +42,6 @@ func tick(actor, blackboard):
     return RUNNING
   else:
     is_active = false
-    return get_child(0).tick(actor, blackboard)
+    return SUCCESS
     
 
