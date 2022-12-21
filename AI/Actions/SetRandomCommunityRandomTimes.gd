@@ -1,10 +1,10 @@
 extends ActionLeaf
 
 export var spawn_min_time = 3
-export var spawn_max_time = 7
+export var spawn_max_time = 15
 
-export var rethink_min_time = 10
-export var rethink_max_time = 20
+export var rethink_min_time = 20
+export var rethink_max_time = 30
 
 onready var time_of_last_reset = Time.get_unix_time_from_system()
 onready var delay_time = rand_range(spawn_min_time, spawn_max_time)

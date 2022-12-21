@@ -9,7 +9,7 @@
 _data = [ Vector2( 0.0239362, 0.0887097 ), 0.0, 1.4, 0, 0, Vector2( 0.196809, 0.604839 ), 1.57228, 1.57228, 0, 0, Vector2( 0.885638, 0.903226 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="Curve" id=4]
-_data = [ Vector2( 0.218085, 0 ), 0.0, 1.4, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+_data = [ Vector2( 0.517815, 0 ), 0.0, 1.4, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 12.0416
@@ -26,6 +26,7 @@ colors = PoolColorArray( 0.521569, 0.6, 0, 0.784314, 0.521569, 0.6, 0, 0.784314,
 script = ExtResource( 3 )
 speed_curve = SubResource( 3 )
 distance_from_poi_curve = SubResource( 4 )
+slowdown_distance = 150
 spawn_speed_modifier = 0.5
 spawn_curve = ExtResource( 5 )
 
