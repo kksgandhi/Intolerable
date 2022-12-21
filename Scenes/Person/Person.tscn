@@ -40,8 +40,10 @@ shape = SubResource( 1 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 z_index = -1
+emitting = false
 amount = 1
 lifetime = 20.0
+one_shot = true
 texture = ExtResource( 4 )
 gravity = Vector2( 0, 0 )
 scale_amount = 1.5

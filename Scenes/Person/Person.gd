@@ -12,6 +12,9 @@ export(Curve) var distance_from_poi_curve
 export var slowdown_distance = 100
 var current_speed_no_distance_slowdown = 0
 var current_speed
+
+var has_entered_poi = false
+
 func _move_to_poi():
   if POI == null:
     return
@@ -22,6 +25,11 @@ func _move_to_poi():
   var distance = POI.distance_to(global_position)
   current_speed = distance_from_poi_curve.interpolate(min(1, distance / slowdown_distance)) * current_speed_no_distance_slowdown
   move_and_slide(vecToPOI * current_speed)
+  if distance < slowdown_distance and not has_entered_poi:
+    # TODO refactor this out
+    $CPUParticles2D.restart()
+    $CPUParticles2D.emitting = true
+    has_entered_poi = true
   
 func _ready():
   scale = Vector2(0, 0)
