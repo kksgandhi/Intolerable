@@ -28,7 +28,7 @@ func _ready():
   
   
 var time_elapsed = 0
-export var spawn_speed_modifier = 1
+export var spawn_speed_modifier = 1.0
 export(Curve) var spawn_curve
 
 func _handle_spawn(delta):

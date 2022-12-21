@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://addons/beehave/nodes/beehave_root.gd" type="Script" id=1]
 [ext_resource path="res://addons/beehave/nodes/composites/sequence.gd" type="Script" id=2]
 [ext_resource path="res://AI/Actions/HardCodePOI.tscn" type="PackedScene" id=3]
-[ext_resource path="res://AI/Actions/GoToPOI.tscn" type="PackedScene" id=4]
 
 [node name="SimplePerson" type="Node"]
 script = ExtResource( 1 )
@@ -13,5 +12,3 @@ script = ExtResource( 2 )
 
 [node name="SetPOI" parent="Move" instance=ExtResource( 3 )]
 POI = Vector2( 100, 100 )
-
-[node name="GoToPOI" parent="Move" instance=ExtResource( 4 )]
