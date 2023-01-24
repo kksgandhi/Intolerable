@@ -32,7 +32,8 @@ func _move_to_poi():
     has_entered_poi = true
   
 func _ready():
-  scale = Vector2(0, 0)
+  # scale = Vector2(0, 0)
+  pass
   
   
 var time_elapsed = 0
@@ -48,4 +49,5 @@ func _handle_spawn(delta):
   scale = Vector2(scale_parameter, scale_parameter)
 
 func _process(delta):
-  _handle_spawn(delta)
+  # _handle_spawn(delta)
+  pass
