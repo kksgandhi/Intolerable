@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3g3osrd8api2"]
+
+[ext_resource type="Script" path="res://AI/Decorators/skip.gd" id="1_6chr8"]
+
+[node name="Skip" type="Node"]
+script = ExtResource("1_6chr8")

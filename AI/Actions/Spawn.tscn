@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://dojmdrbv87sbp"]
 
-[sub_resource type="GDScript" id=1]
+[sub_resource type="GDScript" id="1"]
 script/source = "extends ActionLeaf
 
 func tick(actor, blackboard):
@@ -9,4 +9,4 @@ func tick(actor, blackboard):
 "
 
 [node name="Spawn" type="Node"]
-script = SubResource( 1 )
+script = SubResource("1")
