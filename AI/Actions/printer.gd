@@ -5,7 +5,7 @@ extends ActionLeaf
 # var a = 2
 # var b = "text"
 
-export var textToPrint = "Hello World"
+@export var textToPrint: String = "Hello World"
 
 
 # Called when the node enters the scene tree for the first time.
